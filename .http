@@ -1,0 +1,13 @@
+// in vscode, download the REST Client extension(https://marketplace.visualstudio.com/items?itemName=humao.rest-client)
+
+GET http://localhost:3333/tasks
+
+###
+
+POST http://localhost:3333/tasks
+Content-Type: application/json
+
+{
+  "title": "my title 03",
+  "description": "my description 03"
+}
