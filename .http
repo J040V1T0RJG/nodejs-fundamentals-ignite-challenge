@@ -3,7 +3,6 @@
 GET http://localhost:3333/tasks
 
 ###
-
 POST http://localhost:3333/tasks
 Content-Type: application/json
 
@@ -11,3 +10,13 @@ Content-Type: application/json
   "title": "my title 03",
   "description": "my description 03"
 }
+
+###
+PUT http://localhost:3333/tasks/5206a02b-b6d4-4636-afc9-a78f91902c42
+Content-Type: application/json
+
+{
+  "title": "update title 01111",
+  "description": "update description 011111"
+}
+

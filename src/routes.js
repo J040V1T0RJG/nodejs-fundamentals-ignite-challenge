@@ -40,5 +40,32 @@ export const routes = [
 
       return res.writeHead(201).end()
     }
+  },
+  {
+    method: 'PUT',
+    path: buildRoutePath('/tasks/:id'),
+    handler: (req, res) => {
+      const { id } = req.params
+      const { title, description } = req.body
+
+      if (!title || !description) {
+        return res.writeHead(400).end(
+          JSON.stringify({ message: 'title or description are required' })
+        )
+      }
+
+      const isIdValid = database.find('tasks', id)
+
+      if(!isIdValid) {
+        return res.writeHead(401).end()
+      }
+
+      database.update('tasks', id, {
+        title,
+        description
+      })
+
+      return res.writeHead(204).end()
+    }
   }
 ]
