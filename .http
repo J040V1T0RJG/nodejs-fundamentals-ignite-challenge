@@ -20,3 +20,6 @@ Content-Type: application/json
   "description": "update description 011111"
 }
 
+###
+DELETE http://localhost:3333/tasks/5206a02b-b6d4-4636-afc9-a78f91902c42
+
