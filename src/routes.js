@@ -27,6 +27,12 @@ export const routes = [
     handler: (req, res) => {
       const {title, description} = req.body
 
+      if (!title || !description) {
+        return res.writeHead(400).end(
+          JSON.stringify({ message: 'title or description are required' })
+        )
+      }
+
       const task = {
         id: randomUUID(),
         title,
@@ -57,7 +63,9 @@ export const routes = [
       const isIdValid = database.find('tasks', id)
 
       if(!isIdValid) {
-        return res.writeHead(401).end()
+        return res.writeHead(401).end(
+          JSON.stringify({ message: 'task does not exist' })
+        )
       }
 
       database.update('tasks', id, {
@@ -77,7 +85,9 @@ export const routes = [
       const isIdValid = database.find('tasks', id)
 
       if(!isIdValid) {
-        return res.writeHead(401).end()
+        return res.writeHead(401).end(
+          JSON.stringify({ message: 'task does not exist' })
+        )
       }
 
       database.delete('tasks', id)
@@ -94,7 +104,9 @@ export const routes = [
       const task = database.find('tasks', id)
 
       if(!task) {
-        return res.writeHead(401).end()
+        return res.writeHead(401).end(
+          JSON.stringify({ message: 'task does not exist' })
+        )
       }
 
       const isTaskComplete = task.completed_at
