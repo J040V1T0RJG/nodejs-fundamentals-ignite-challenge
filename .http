@@ -23,3 +23,5 @@ Content-Type: application/json
 ###
 DELETE http://localhost:3333/tasks/5206a02b-b6d4-4636-afc9-a78f91902c42
 
+###
+PATCH http://localhost:3333/tasks/fa99006e-a1be-4c3c-a536-ee03cb4f10cb/complete
